@@ -1,10 +1,9 @@
 package com.shsxt.crm.dao;
 
 import com.shsxt.base.BaseDao;
-import org.springframework.stereotype.Repository;
+import com.shsxt.crm.vo.User;
 
-@Repository
 public interface UserMapper extends BaseDao {
-
+User queryUserByName(String name);
 
 }
