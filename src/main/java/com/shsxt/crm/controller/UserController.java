@@ -1,6 +1,13 @@
 package com.shsxt.crm.controller;
-//你是个逗比
-public class UserController {
-    //大家都是逗比
+
+import com.shsxt.base.BaseController;
+import com.shsxt.crm.service.UserService;
+import org.springframework.stereotype.Controller;
+import javax.annotation.Resource;
+
+@Controller
+public class UserController extends BaseController {
+    @Resource
+  UserService userService;
 
 }
