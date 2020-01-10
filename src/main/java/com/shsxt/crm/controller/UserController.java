@@ -28,36 +28,12 @@ public class UserController extends BaseController {
     @PostMapping("userLogin")
     @ResponseBody
     public ResultInfo userLogin(String userName, String userPwd) {
-        ResultInfo resultInfo = new ResultInfo();
-        try {
-            resultInfo.setResult(userService.userLogin(userName, userPwd));
-        } catch (ParamsException e) {
-            e.printStackTrace();
-            resultInfo.setCode(e.getCode());
-            resultInfo.setMsg(e.getMsg());
-        } catch (Exception e) {
-            e.printStackTrace();
-            resultInfo.setCode(500);
-            resultInfo.setMsg("failed");
-        }
-        return resultInfo;
+        return success("登录成功",userService.userLogin(userName, userPwd));
     }
-
     @PostMapping("updatePwd")
     @ResponseBody
     public ResultInfo updatePwd(HttpServletRequest request, String oldPassword, String newPassword, String confirmPassword) {
-        ResultInfo resultInfo = new ResultInfo();
-        try {
-            userService.updatePwd(request, oldPassword, newPassword, confirmPassword);
-        } catch (ParamsException e) {
-            e.printStackTrace();
-            resultInfo.setCode(e.getCode());
-            resultInfo.setMsg(e.getMsg());
-        } catch (Exception e) {
-            e.printStackTrace();
-            resultInfo.setCode(500);
-            resultInfo.setMsg("failed");
-        }
-        return resultInfo;
+        userService.updatePwd(request, oldPassword, newPassword, confirmPassword);
+        return success("密码更新成功");
     }
 }
