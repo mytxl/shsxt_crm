@@ -1,7 +1,5 @@
 package com.shsxt.base;
 
-import com.shsxt.crm.vo.User;
-
 import java.util.List;
 
 public interface BaseDao<T, ID> {

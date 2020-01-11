@@ -10,12 +10,11 @@ import com.shsxt.crm.utils.UserIDBase64;
 import com.shsxt.crm.vo.User;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @Service
-public class UserService extends BaseService {
+public class UserService extends BaseService<User,Integer> {
     @Resource
     UserMapper userMapper;
 
@@ -42,6 +41,8 @@ public class UserService extends BaseService {
         AssertUtil.isTrue(updateByPrimaryKeySelective(user) < 1, "密码更新失败!");
     }
 
+
+
     private void checkuserPwd(HttpServletRequest request, String oldPassword, String newPassword, String confirmPassword) {
         AssertUtil.isTrue(StringUtils.isBlank(oldPassword), "原来密码不能为空");
         AssertUtil.isTrue(StringUtils.isBlank(newPassword), "新密码不能为空");
@@ -49,4 +50,6 @@ public class UserService extends BaseService {
         AssertUtil.isTrue(StringUtils.isBlank(confirmPassword), "确认密码不能为空");
         AssertUtil.isTrue(!newPassword.equals(confirmPassword), "两次密码输入的不一致");
     }
+
+
 }

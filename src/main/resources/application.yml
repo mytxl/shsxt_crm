@@ -6,6 +6,7 @@ server:
 
 
 ## 数据源配置
+
 spring:
   datasource:
     type: com.mchange.v2.c3p0.ComboPooledDataSource
@@ -30,6 +31,5 @@ mybatis:
 ## pageHelper
 pagehelper:
   helper-dialect: mysql
-
 
 
